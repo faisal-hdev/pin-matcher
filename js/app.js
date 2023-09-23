@@ -43,3 +43,23 @@ document
       typeNumberField.value = newTypeNumber;
     }
   });
+
+document
+  .getElementById("verify-submit-pin")
+  .addEventListener("click", function () {
+    const displayPinField = document.getElementById("display-pin");
+    const currentPin = displayPinField.value;
+
+    const typedNumberField = document.getElementById("typed-numbers");
+    const typedNumber = typedNumberField.value;
+
+    const pinSuccessElement = document.getElementById("pin-success");
+    const pinFailureElement = document.getElementById("pin-failure");
+    if (typedNumber === currentPin) {
+      pinSuccessElement.style.display = "block";
+      pinFailureElement.style.display = "none";
+    } else {
+      pinFailureElement.style.display = "block";
+      pinSuccessElement.style.display = "none";
+    }
+  });
